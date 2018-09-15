@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title>Validar Formulario</title>
+		
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		
+		 <link rel="stylesheet" href="../../css3/validationEngine.jquery.css" type="text/css"/>
+	<link rel="stylesheet" href="../../css3/template.css" type="text/css"/>
+	<script src="../../js3/jquery-1.8.2.min.js" type="text/javascript">
+	</script>
+	<script src="../../js3/languages/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script src="../../js3/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
+	</script>
+        
+     <script>
+		jQuery(document).ready(function(){
+			// binds form submission and fields to the validation engine
+			jQuery("#formID").validationEngine();
+		});
+
+		/**
+		*
+		* @param {jqObject} the field where the validation applies
+		* @param {Array[String]} validation rules for this field
+		* @param {int} rule index
+		* @param {Map} form options
+		* @return an error string if validation failed
+		*/
+		function checkHELLO(field, rules, i, options){
+			if (field.val() != "HELLO") {
+				// this allows to use i18 for the error msgs
+				return options.allrules.validate2fields.alertText;
+			}
+		}
+	</script>  
+		
+		
+		
+	</head>
+	<body >
+	
+					<form id="formID" class="formular"  method="post" action="../clientes/guardar_cliente" enctype="multipart/form-data">
+						<table >
+							<thead>
+								<tr>
+									<th colspan="2"><h3>..:: Adicionar Cliente ::..</h3></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td id="etiqueta">
+										<label for="ci">C.I</label>
+									</td>
+									<td>
+										<input type="text" id="ci" name="ci" class="validate[required,custom[integer],max[7]] text-input" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="nombre">Nombre</label>
+									</td>
+									<td>
+										<input type="text" id="nombre" name="nombre" class="validate[required,custom[onlyLetterSp],minSize[3]]" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="ap">Ap Paterno</label>
+									</td>
+									<td>
+										<input type="text" id="ap" name="ap" class="validate[required] text-input" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="am">Ap Materno</label>
+									</td>
+									<td>
+										<input type="text" id="am" name="am" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="dir">Dirección</label>
+									</td>
+									<td>
+										<input type="text" id="dir" name="direccion" class="validate[required,minSize[3]]" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="telf">Teléfono</label>
+									</td>
+									<td>
+										<input type="text" id="telf" name="telefono" class="validate[required,custom[integer],max[7]] text-input" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="emp">Empresa</label>
+									</td>
+									<td>
+										<input type="text" id="emp" name="empresa" />
+									</td>
+								</tr>
+								<tr>
+									<td id="etiqueta">
+										<label for="foto">Foto</label>
+									</td>
+									<td>
+										<input type="file" id="foto" name="file"/>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th colspan="2">
+										<input id="guardar" type="submit" value="Guardar"/>
+										<input id="cancelar" type="button" value="Cancelar" onclick="location.href='../clientes/gestion_clientes'" />
+									</th>
+								</tr>
+							</tfoot>
+						</table>
+					</form>
+				
+		
+	</body>
+</html>

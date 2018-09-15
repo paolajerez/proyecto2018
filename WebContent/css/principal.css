@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+*{
+	font-size: 98%;
+	font-family:monospace;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	margin: 0 auto;
+	padding: 0;
+}
+body {
+	font-size: 12pt; 
+}
+textarea{
+	min-width: 120px; max-width: 120px;
+	min-height: 45px; max-height: 45px;
+}

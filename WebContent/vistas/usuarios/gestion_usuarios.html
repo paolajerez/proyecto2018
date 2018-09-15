@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Evaluación</title>
+		<style type="text/css" media="all">
+		
+			@import url('../../css/principal.css');
+			
+		</style>	
+		
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+			
+		
+		
+		
+	</head>
+	<body >
+	
+	
+		<table class="table table-striped table-bordered" id="example" >
+			<thead>
+			
+			
+				<tr>
+					<th colspan="8">
+						
+							<a href="../usuarios/adicionar_usuario"><img  width="35px" src="../../iconos/add.png">.:: Adicionar Usuario ::.<img  width="35px" src="../../iconos/add.png"></a>
+						
+					</th>
+				</tr>
+				<tr>
+					<th>CI</th>
+					<th>Nombres y Apellidos</th>
+					<th>Estado</th>
+					<th>Datos</th>
+					<th>Asig. Roles</th>
+					<th>Modificar</th>
+					<th>Eliminar</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody align="center">
+				#foreach($us in $usuarios)
+				<tr>
+					<td>$us.ci</td>
+					<td>$us</td>
+					<td>
+						#if($us.estado==1) Activo
+						#else Eliminado
+						#end
+					</td>
+					<td>
+						#if($us.datos)
+						<a href="../usuarios/modificar_datos?ci=$us.ci"><img  width="35px" src="../../iconos/mdatos.png"></a>
+						#else
+						<a href="../usuarios/adicionar_datos?ci=$us.ci"><img  width="35px" src="../../iconos/adatos.png"></a>
+						#end
+					</td>
+					<td>
+						<a href="../usuarios/asignar_roles?ci=$us.ci"><img  width="35px" src="../../iconos/rol.png"></a>
+					</td>
+					<td>
+						<a href="../usuarios/modificar_usuario?ci=$us.ci"><img  width="35px" src="../../iconos/mod.png"></a>
+					</td>
+					<td>
+						<a href="../usuarios/eliminar_usuario?ci=$us.ci"><img  width="35px" src="../../iconos/elim.png"></a>
+					</td>
+					<td>
+						<a href="../usuarios/ver_usuario?ci=$us.ci"><img  width="35px" src="../../iconos/ver.png"></a>
+					</td>
+				</tr>
+				#end
+			</tbody>
+		</table>
+	
+	</body>
+</html>

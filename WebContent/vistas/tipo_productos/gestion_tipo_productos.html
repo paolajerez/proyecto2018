@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title>UserCont</title>
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+			
+		
+		
+		
+	</head>
+	<body background="../../fondo/fondo.png">
+		<center>
+			<table class="table table-striped table-bordered" id="example">
+						<thead>
+							
+							<tr>
+								<th colspan="7">
+									<a href="../tipo_productos/adicionar_tipo_producto"><img  width="35px" src="../../iconos/add.png">Añadir Nuevo Tipo de Producto<img  width="35px" src="../../iconos/add.png"></a>
+								</th>
+							</tr>
+							<tr>
+								<th>Codtp</th>
+								<th>Nombre</th>
+								<th>Estado</th>
+								<th>No. de Productos</th>
+								<th>Modificar</th>
+								<th>Eliminar</th>
+								<th>Ver</th>
+							</tr>
+						</thead>
+						<tbody>
+							#foreach($tipo in $tipos)
+							<tr>
+								<td>$tipo.codtp</td>
+								<td>$tipo.nombre</td>
+								<td>$tipo.estado</td>
+								<td>$tipo.productos.size()</td>
+								<td>
+									<a href="../tipo_productos/modificar_tipo_producto?codtp=$tipo.codtp"><img  width="35px" src="../../iconos/mod.png"></a>
+								</td>
+								<td><a onclick="if(!window.confirm('¿Desea eliminar a $tipo.nombre?')){return false;}" href="../tipo_productos/eliminar_tipo_producto?codtp=$tipo.codtp"><img  width="35px" src="../../iconos/elim.png"></a></td>
+								<td><a href="../tipo_productos/ver_tipo_producto?codtp=$tipo.codtp"><img  width="35px" src="../../iconos/ver.png"></a></td>
+							</tr>
+							#end
+						</tbody>
+					</table>
+		</center>	
+		
+	</body>
+</html>

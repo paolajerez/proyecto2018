@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Evaluación</title>
+		<link rel="stylesheet" media="screen" href="../../css2/styles.css" >
+		
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+		
+	</head>
+	<body >
+	
+	<center>
+		<table class="table table-striped table-bordered" id="example" >
+			<thead>
+				<tr>
+					<th colspan="6">
+					
+							<a href="../procesos/adicionar_proceso"><img  width="35px" src="../../iconos/add.png">Adicionar Proceso<img  width="35px" src="../../iconos/add.png"></a>
+						
+					</th>
+				</tr>
+				<tr>
+					<th>Nombre</th>
+					<th>Enlace</th>
+					<th>Estado</th>
+					<th>Modificar</th>
+					<th>Eliminar</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody align="center">
+				#foreach($pr in $procesos)
+				<tr>
+					<td>$pr.nombre</td>
+					<td>$pr.enlace</td>
+					<td>
+						#if($pr.estado==1) Activo
+						#else Eliminado
+						#end
+					</td>
+					<td>
+						<a href="../procesos/modificar_proceso?codp=$pr.codp"><img  width="35px" src="../../iconos/mod.png"></a>
+					</td>
+					<td>
+						<a href="../procesos/eliminar_proceso?codp=$pr.codp"><img  width="35px" src="../../iconos/elim.png"></a>
+					</td>
+					<td>
+						<a href="../procesos/ver_proceso?codp=$pr.codp"><img  width="35px" src="../../iconos/ver.png"></a>
+					</td>
+				</tr>
+				#end
+			</tbody>
+		</table>
+		
+		</center>
+	</body>
+</html>

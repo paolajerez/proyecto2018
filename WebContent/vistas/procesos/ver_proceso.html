@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Evaluación</title>
+		<link rel="stylesheet" media="screen" href="../../css2/styles.css" >
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		
+		
+		
+		
+		<link rel="stylesheet" href="../../css3/validationEngine.jquery.css" type="text/css"/>
+	<link rel="stylesheet" href="../../css3/template.css" type="text/css"/>
+	<script src="../../js3/jquery-1.8.2.min.js" type="text/javascript">
+	</script>
+	<script src="../../js3/languages/jquery.validationEngine-es.js" type="text/javascript" charset="utf-8">
+	</script>
+	<script src="../../js3/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
+	</script>
+        
+     <script>
+		jQuery(document).ready(function(){
+			// binds form submission and fields to the validation engine
+			jQuery("#formID").validationEngine();
+		});
+
+		/**
+		*
+		* @param {jqObject} the field where the validation applies
+		* @param {Array[String]} validation rules for this field
+		* @param {int} rule index
+		* @param {Map} form options
+		* @return an error string if validation failed
+		*/
+		function checkHELLO(field, rules, i, options){
+			if (field.val() != "HELLO") {
+				// this allows to use i18 for the error msgs
+				return options.allrules.validate2fields.alertText;
+			}
+		}
+	</script>  
+	</head>
+	<body>
+		<form id="formID" class="formular" >
+			<table>
+				<thead>
+					<tr>
+						<th colspan="2">.:: Datos de $pr.nombre ::.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<label>Nombre:</label>
+						</td>
+						<td>
+							$pr.nombre
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Descripción:</label>
+						</td>
+						<td>
+							<textarea rows="2" cols="1" name="descrip" readonly="readonly">$!{pr.descrip}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Enlace:</label>
+						</td>
+						<td>
+							<textarea rows="2" cols="1" name="enlace" readonly="readonly">$!{pr.enlace}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Logo Actual:</label>
+						</td>
+						<td>
+							#if($pr.logo)
+							<img src="../../pro_logos/$pr.logo" width="128px">
+							#end
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="2">
+							<input type="button" value="Imprimir" onclick="window.print()">
+							<input type="button" value="Cancelar" onclick="location.href='../procesos/gestion_procesos'">
+						</th>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</body>
+</html>

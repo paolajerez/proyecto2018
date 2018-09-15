@@ -1,0 +1,43 @@
+
+ul#sliding-navigation
+{
+	list-style: none;
+	font-size: .75em;
+	margin: 30px 0;
+	padding: 0;
+}
+
+ul#sliding-navigation li.sliding-element h3,
+ul#sliding-navigation li.sliding-element a
+{
+	display: block;
+	width: 150px;
+	padding: 5px 18px;
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+ul#sliding-navigation li.sliding-element h3
+{
+	color: #fff;
+	background:#333 url(../../img/menu/background.png) repeat-y;
+	font-weight: normal;
+	font-size: 14px;	
+}
+
+ul#sliding-navigation li.sliding-element a
+{
+	color: #999;
+	background:#222 url(../../img/menu/tab_bg.jpg) repeat-y;
+	border: 1px solid #1a1a1a;
+	text-decoration: none;
+	font-size:10px;
+}
+
+
+ul#sliding-navigation li.sliding-element a:hover
+{ 
+	color: #ffff66;
+	font-size:11px; 
+	
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Evaluación</title>
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+			
+		
+		
+		
+		
+	</head>
+	<body background="../../fondo/fondo.png">
+		
+		<center>
+		<table class="table table-striped table-bordered" id="example">
+			<thead align="center">
+				<tr>
+					<th colspan="7">
+						
+							<a href="../roles/adicionar_rol"><img  width="30px" src="../../iconos/add.png">.:: Adicionar Rol ::.<img  width="35px" src="../../iconos/add.png"></a>
+						
+					</th>
+				</tr>
+				<tr>
+					<th>Nombre</th>
+					<th>Estado</th>
+					<th>Procesos</th>
+					<th>Asig. Procesos</th>
+					<th>Modificar</th>
+					<th>Eliminar</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+		
+			<tbody align="center">
+				#foreach($rol in $roles)
+				<tr>
+					<td>$rol.nombre</td>
+					<td>
+						#if($rol.estado==1) Activo
+						#else Eliminado
+						#end
+					</td>
+					<td>
+						#if($rol.procesos.size()>0) $rol.procesos.size()
+						#else Sin Procesos
+						#end
+					</td>
+					<td>
+						<a href="../roles/asignar_procesos?codr=$rol.codr"><img  width="35px" src="../../iconos/proc.png"></a>
+					</td>
+					<td>
+						<a href="../roles/modificar_rol?codr=$rol.codr"><img  width="35px" src="../../iconos/mod.png"></a>
+					</td>
+					<td>
+						<a href="../roles/eliminar_rol?codr=$rol.codr"><img  width="35px" src="../../iconos/elim.png"></a>
+					</td>
+					<td>
+						<a href="../roles/ver_rol?codr=$rol.codr"><img  width="35px" src="../../iconos/ver.png"></a>
+					</td>
+				</tr>
+				#end
+			</tbody>
+		</table>
+		
+	</center>	
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title>Ver Datos</title>
+        
+        <script type="text/javascript">
+		
+		
+        
+        </script>
+        
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+	</head>
+	<body background="../../fondo/fondo.png">
+	<div>
+  		
+  		
+  		
+  		
+  	<labelstyle="color: red;">REPORTE DE VENTAS DEL USUARIO:</label> <br>
+  		
+  		<label style="color: BLACK;">$usuario</label>
+  		
+  		
+  		
+		
+	
+    
+    </div>
+    
+    <div>
+    
+     
+     
+    		 <center>
+   <table border="0">
+						<thead>
+							<tr>
+							
+							<label>DETALLE DE LAS VENTAS</label>	<br>				
+							
+							</tr>
+							
+							<tr>
+								
+								<th>Codigo de venta</th>
+								<th>descripcion</th>
+								<th>monto total</th>
+								<th>Fecha</th>
+								
+								
+							</tr>
+						</thead>
+						<tbody>
+                        
+                        	
+                        
+							#set($cont=0)
+							#foreach($venta in $ventas)
+                            #foreach($r in $rangos)
+                            
+                            #if($venta.codv==$r.codv)
+                   			
+                            
+							<tr>
+													
+								<td>$venta.codv</td>
+								
+								<td>$venta.descripcion</td>
+								<td>$venta.monto_total</td>
+								<td>$venta.fecha</td>								
+								
+								
+							
+							</tr>
+								
+                            #set($cont=$cont+$venta.monto_total)
+							
+                            #end
+                            
+                            
+                            
+                            #end
+                            
+                            #end
+                            
+                            
+                            <label style="color: red;">TOTAL EN VENTAS</label><br>
+                            
+                            <label >$cont</label>
+                            <br>
+                            
+                             <labelstyle="color: red;" >DESDE:</label><br>
+                            
+                            <label >$fechaini</label>
+                            <br>
+                            
+                            <label style="color: red;">HASTA:</label><br>
+                            
+                            <label >$fechaini</label>
+                            <br>
+                            
+                            
+						</tbody>
+						
+						<tfoot>
+						 <input id="imprimir" type="button" value="Imprimir" onclick="window.print();" />
+						  <input id="cancelar" type="button" value="Cancelar" onclick="history.go(-1);" />
+									
+						</tfoot>
+						
+					</table>
+    
+    	
+    
+    
+    
+
+    
+    </div>
+    
+    <input id="imprimir" type="button" value="Imprimir" onclick="window.print();" />
+										
+   </center> 
+  
+</html>

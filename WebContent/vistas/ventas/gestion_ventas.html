@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title></title>
+		<meta name="description" content="" />
+		
+	
+		<style type="text/css">
+			@import url('../../css/principal.css');
+		</style>
+		
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+		
+	</head>
+	<body background="../../fondo/fondo.png">
+		<center>
+
+					<table class="table table-striped table-bordered" >
+						<thead>
+							
+							<tr>
+								<th colspan="8">
+									<a href="../ventas/adicionar_venta"><img  width="35px" src="../../iconos/add.png">Añadir Nueva venta <img  width="35px" src="../../iconos/add.png"></a>
+								</th>
+							</tr>
+							<tr>
+								<th>No.</th>
+								<th>Codigo</th>
+								<th>Autorizacion</th>
+								<th>NIT</th>
+								<th>cod control</th>
+								<th>Fecha</th>
+								
+								<th>Modificar</th>
+								<th>Ver</th>
+							</tr>
+						</thead>
+						<tbody>
+							#set($cont=1)
+							#foreach($venta in $ventas)
+							<tr>
+								<td>$cont</td>						
+								<td>$venta.codv</td>
+								<td>$venta.genera_fac.autorizacion</td>
+								<td>$venta.nit_ci</td>
+								<td>$venta.cod_control</td>
+								<td>$venta.fecha</td>								
+								
+								<td>#if($venta.estado==1)<a href="../ventas/modificar_venta?codv=$venta.codv"><img  width="35px" src="../../iconos/mod.png"></a>#end</td>
+								<td><a href="../ventas/ver_venta?codv=$venta.codv"><img  width="35px" src="../../iconos/ver.png"></a></td>
+							</tr>
+							#set($cont=$cont+1)
+							#end
+						</tbody>
+					</table>
+		</center>	
+	</body>
+</html>

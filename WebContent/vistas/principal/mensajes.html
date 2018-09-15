@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Evaluación</title>
+		<style type="text/css">
+			
+		</style>
+		#if($url)
+		<meta http-equiv="refresh" content="1;URL=../$url">
+		#end
+	</head>
+	<body>
+		<br><br><br>
+		#if($msg)
+		<h1 style="color: red" align="center">$msg</h1>
+		#else
+		<h1 style="color: red;" align="center">$error</h1>
+		#end
+	</body>
+</html>

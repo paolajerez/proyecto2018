@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title>Ver Datos</title>
+        <style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+        <script type="text/javascript">
+		
+        function verificar() {
+    		var cadena=document.getElementById("ci").value;
+    		var res=true;
+    		
+    		#foreach($usuario in $usuarios)
+    		if(cadena=="$usuario.ci"){
+    			document.getElementById("nombre").value="$usuario";
+    			
+    		}
+    		
+    	#end
+    	};
+        
+        </script>
+        
+		
+	</head>
+	<body background="../../fondo/fondo.png">
+	<div>
+  <form action="../reportes/generar_reporte_venta" method="post" enctype="multipart/form-data">
+			
+
+  				<tr>
+									
+						<td id="etiqueta">
+									
+							<label for="ci">usuarios</label>
+						</td>
+									
+						 <td>
+    
+    						<select id="ci" name="ci" onblur="verificar();" onfocus="verificar();" onclick="verificar();" 				                                      onkeydown="verificar();"  >
+											<option value="" selected="selected">[SELECCIONAR]</option>
+												#foreach($usuario in $usuarios)
+											<option value="$usuario.ci">$usuario.ci</option>
+												#end
+							</select>
+                              
+             			</td>  
+             			
+             			<td>
+	             			<td>
+									<input type="text" name="nombre" id="nombre" />
+							</td>
+             			</td>
+										
+									
+			</tr>
+    
+    <tr>
+									
+						<td id="etiqueta">
+									
+							<label for="fecha">fecha inicial</label>
+						</td>
+									
+						 <td>
+    
+    						<input type="date" name="fechaini" id="fechaini">
+                              
+             
+            
+                         </td>  
+										
+									
+			</tr>
+			
+			
+			<tr>
+									
+						<td id="etiqueta">
+									
+							<label for="fecha">fecha final</label>
+						</td>
+									
+						 <td>
+    
+    						<input type="date" name="fechafin" id="fechafin">
+                              
+             
+            
+                         </td>  
+										
+									
+			</tr>
+			
+			<tr>
+			
+				<td> <input type="submit" value="Generar reporte"></td>
+				
+				<td> <input type="button" value="cancelar" ></td>
+			</tr>
+			
+			
+			
+			
+    
+    </form>
+    
+    
+    </div>
+    
+    
+    
+    
+    
+  
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1" />
+		<title></title>
+		<meta name="description" content="" />
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			@import url("../../css/temas/ui-lightness/jquery.ui.all.css");
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+		
+	</head>
+	<body background="../../fondo/fondo.png">
+		<center>
+
+					<table class="table table-striped table-bordered" id="example" >
+						<thead>
+							
+							<tr>
+								<th colspan="10">
+									<a href="../compras/adicionar_compra"><img  width="35px" src="../../iconos/add.png">Adicionar Nueva Compra<img  width="35px" src="../../iconos/add.png"></a>
+								</th>
+							</tr>
+							<tr>
+								<th>Proveedor</th>
+								<th>Descripción</th>
+								<th>Fecha</th>
+								<th>Monto Total</th>
+								<th>Eliminar</th>
+								<th>Modificar</th>
+								<th>Ver</th>
+							</tr>
+						</thead>
+						<tbody>
+							#foreach($u in $compras)
+							<tr>
+								#foreach($proc in $proveedores)
+								#if($u.codpro == $proc.ci)
+								<td>$proc</td>
+								#end
+								#end
+								<td>$u.descripcion</td>
+								<td>$u.fecha</td>
+								<td>$u.monto_total</td>
+								<td><a onclick="if(!window.confirm('¿Desea eliminar a $u.descripcion?')){return false;}" href="../compras/eliminar_compra?codc=$u.codc"><img  width="35px" src="../../iconos/elim.png"></a></td>
+								<td><a href="../compras/modificar_detalle_compra?codc=$u.codc"><img  width="35px" src="../../iconos/mod.png"></a></td>
+								<td><a href="../compras/ver_compra?codc=$u.codc"><img  width="35px" src="../../iconos/ver.png"></a></td>
+							</tr>
+							#end
+						</tbody>
+					</table>
+				</div>
+			</article>
+		</center>	
+	</body>
+</html>

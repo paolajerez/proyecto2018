@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title></title>
+		<style type="text/css">
+			@import url('../../css/principal.css');
+			
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css2/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css2/DT_bootstrap.css">
+
+		<script type="text/javascript"   src="../../js2/jquery.min.js"></script>
+		<script type="text/javascript"   src="../../js2/jquery.dataTables.js"></script>
+		<script type="text/javascript"  src="../../js2/DT_bootstrap.js"></script>
+		
+	</head>
+	<body background="../../fondo/fondo.png" >
+		
+		<center>
+		
+		<table class="table table-striped table-bordered" id="example" >
+			<thead>
+				<tr>
+					<th colspan="12">
+						 
+							<a href="../genera_fac/adicionar_genera_fac"><img  width="35px" src="../../iconos/add.png"> Adicionar genera_fac<img  width="35px" src="../../iconos/add.png"></a>
+						
+					</th>
+				</tr>
+				<tr>
+					<th>nro</th>
+					<th>codigo</th>
+					<th>autorizacion</th>
+					<th>NIT</th>
+					<th>Nro inicial</th>
+					<th>Nro final</th>
+					<th>Nro emitidos</th>
+					
+					<th>estado</th>
+					<th>Modificar</th>
+					<th>Eliminar</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody align="center">
+				#foreach($ge in $gene)
+				<tr>
+					<td>11</td>
+					<td>$ge.codgf</td>
+					<td>$ge.autorizacion</td>
+					<td>$ge.nit</td>
+					<td>$ge.num_inicio</td>
+					<td>$ge.num_fin</td>
+					<td>$ge.num_emitidos</td>
+					<td>#if($ge.estado==1) Activo<br>
+						 #else Eliminado<br>
+						#end</td>
+					<td><a href="../genera_fac/modificar_genera_fac?codgf=$ge.codgf"><img  width="35px" src="../../iconos/mod.png"></a></td>
+					<td><a href="../genera_fac/eliminar_genera_fac?codgf=$ge.codgf"><img  width="35px" src="../../iconos/elim.png"></a></td>
+					<td><a href="../genera_fac/ver_genera_fac?codgf=$ge.codgf"><img  width="35px" src="../../iconos/ver.png"></a></td>
+					
+				</tr>
+				#end
+			</tbody>
+		</table>
+		</center>
+	</body>
+</html>
