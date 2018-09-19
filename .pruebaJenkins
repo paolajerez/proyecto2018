@@ -1,0 +1,36 @@
+<? xml version = "1.0" encoding = "UTF-8"?>
+<projectDescription>
+	<nombre> proyecto2014 </ name>
+	<comentario> </ comentario>
+	<proyectos>
+	</ projects>
+	<buildSpec>
+		<buildCommand>
+			<nombre> org.eclipse.wst.jsdt.core.javascriptValidator </ name>
+			<argumentos>
+			</ arguments>
+		</ buildCommand>
+		<buildCommand>
+			<nombre> org.eclipse.jdt.core.javabuilder </ name>
+			<argumentos>
+			</ arguments>
+		</ buildCommand>
+		<buildCommand>
+			<nombre> org.eclipse.wst.common.project.facet.core.builder </ name>
+			<argumentos>
+			</ arguments>
+		</ buildCommand>
+		<buildCommand>
+			<nombre> org.eclipse.wst.validation.validationbuilder </ name>
+			<argumentos>
+			</ arguments>
+		</ buildCommand>
+	</ buildSpec>
+	<naturalezas>
+		<nature> org.eclipse.jem.workbench.JavaEMFNature </ nature>
+		<nature> org.eclipse.wst.common.modulecore.ModuleCoreNature </ nature>
+		<nature> org.eclipse.wst.common.project.facet.core.nature </ nature>
+		<nature> org.eclipse.jdt.core.javanature </ nature>
+		<nature> org.eclipse.wst.jsdt.core.jsNature </ nature>
+	</ naturalezas>
+</ projectDescription>
